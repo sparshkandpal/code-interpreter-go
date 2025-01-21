@@ -24,11 +24,12 @@ func main() {
 		LEFT_BRACKET rune = '['
 		RIGHT_BRACKET rune = ']'
 		COMMA rune = ','
-		PERIOD rune = '.'
+		DOT rune = '.'
 		MINUS rune = '-'
 		PLUS rune = '+'
 		STAR rune = '*'
 		SLASH rune = '/'
+		SEMICOLON rune = ';'
 	)
 	
 	if command != "tokenize" {
@@ -54,6 +55,24 @@ func main() {
 			fmt.Println("LEFT_BRACE { null")
 		case RIGHT_BRACE:
 			fmt.Println("RIGHT_BRACE } null")
+		case LEFT_BRACKET:
+			fmt.Println("LEFT_BRACKET [ null")
+		case RIGHT_BRACKET:
+			fmt.Println("RIGHT_BRACKET ] null")
+		case COMMA:
+			fmt.Println("COMMA , null")
+		case DOT:
+			fmt.Println("DOT . null")
+		case MINUS:
+			fmt.Println("MINUS - null")
+		case PLUS:
+			fmt.Println("PLUS + null")
+		case STAR:
+			fmt.Println("STAR * null")
+		case SLASH:
+			fmt.Println("SLASH / null")
+		case SEMICOLON:
+			fmt.Println("SEMICOLON ; null")
 		}
 	}
 	fmt.Println("EOF  null")
