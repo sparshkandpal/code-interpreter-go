@@ -19,6 +19,16 @@ func main() {
 	const (
 		LEFT_PAREN  rune = '('
 		RIGHT_PAREN rune = ')'
+		LEFT_BRACE rune = '{'
+		RIGHT_BRACE rune = '}'
+		LEFT_BRACKET rune = '['
+		RIGHT_BRACKET rune = ']'
+		COMMA rune = ','
+		PERIOD rune = '.'
+		MINUS rune = '-'
+		PLUS rune = '+'
+		STAR rune = '*'
+		SLASH rune = '/'
 	)
 	
 	if command != "tokenize" {
@@ -40,6 +50,10 @@ func main() {
 			fmt.Println("LEFT_PAREN ( null")
 		case RIGHT_PAREN:
 			fmt.Println("RIGHT_PAREN ) null")
+		case LEFT_BRACE:
+			fmt.Println("LEFT_BRACE { null")
+		case RIGHT_BRACE:
+			fmt.Println("RIGHT_BRACE } null")
 		}
 	}
 	fmt.Println("EOF  null")
