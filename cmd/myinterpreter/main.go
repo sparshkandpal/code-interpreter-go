@@ -8,6 +8,7 @@ import (
 func main() {
 	// You can use print statements as follows for debugging, they'll be visible when running tests.
 	fmt.Fprintln(os.Stderr, "Logs from your program will appear here!")
+	hasError := false
 
 	if len(os.Args) < 3 {
 		fmt.Fprintln(os.Stderr, "Usage: ./your_program.sh tokenize <filename>")
@@ -73,7 +74,16 @@ func main() {
 			fmt.Println("SLASH / null")
 		case SEMICOLON:
 			fmt.Println("SEMICOLON ; null")
+		default:
+			fmt.Fprintf(os.Stderr, "[line 1] Error: Unexpected character: %c\n", current)
+			hasError = true
 		}
 	}
 	fmt.Println("EOF  null")
+
+	if hasError {
+		os.Exit(65)
+	} else {
+		os.Exit(0)
+	}
 }
