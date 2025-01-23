@@ -37,6 +37,8 @@ func main() {
 			next = rune(fileContents[i+1])
 		}
 		switch {
+		case current == '/' && next == '/':
+			i = len(fileContents)
 		case current == '=' && next == '=':
 			fmt.Println("EQUAL_EQUAL == null")
 			i++
