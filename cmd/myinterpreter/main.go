@@ -16,22 +16,6 @@ func main() {
 	}
 
 	command := os.Args[1]
-
-	const (
-		LEFT_PAREN  rune = '('
-		RIGHT_PAREN rune = ')'
-		LEFT_BRACE rune = '{'
-		RIGHT_BRACE rune = '}'
-		LEFT_BRACKET rune = '['
-		RIGHT_BRACKET rune = ']'
-		COMMA rune = ','
-		DOT rune = '.'
-		MINUS rune = '-'
-		PLUS rune = '+'
-		STAR rune = '*'
-		SLASH rune = '/'
-		SEMICOLON rune = ';'
-	)
 	
 	if command != "tokenize" {
 		fmt.Fprintf(os.Stderr, "Unknown command: %s\n", command)
@@ -46,33 +30,43 @@ func main() {
 	}
 	
 	fileContents := string(rawfileContents)
-	for _, current := range fileContents {
-		switch current {
-		case LEFT_PAREN:
+	for i := 0; i < len(fileContents); i++ {
+		current := fileContents[i]
+		var next = rune(0)
+		if i+1 < len(fileContents) {
+			next = rune(fileContents[i+1])
+		}
+		switch {
+		case current == '=' && next == '=':
+			fmt.Println("EQUAL_EQUAL == null")
+			i++
+		case current == '=':
+			fmt.Println("EQUAL = null")
+		case current == '(':
 			fmt.Println("LEFT_PAREN ( null")
-		case RIGHT_PAREN:
+		case current == ')':
 			fmt.Println("RIGHT_PAREN ) null")
-		case LEFT_BRACE:
+		case current == '{':
 			fmt.Println("LEFT_BRACE { null")
-		case RIGHT_BRACE:
+		case current == '}':
 			fmt.Println("RIGHT_BRACE } null")
-		case LEFT_BRACKET:
+		case current == '[':
 			fmt.Println("LEFT_BRACKET [ null")
-		case RIGHT_BRACKET:
+		case current == ']':
 			fmt.Println("RIGHT_BRACKET ] null")
-		case COMMA:
+		case current == ',':
 			fmt.Println("COMMA , null")
-		case DOT:
+		case current == '.':
 			fmt.Println("DOT . null")
-		case MINUS:
+		case current == '-':
 			fmt.Println("MINUS - null")
-		case PLUS:
+		case current == '+':
 			fmt.Println("PLUS + null")
-		case STAR:
+		case current == '*':
 			fmt.Println("STAR * null")
-		case SLASH:
+		case current == '/':
 			fmt.Println("SLASH / null")
-		case SEMICOLON:
+		case current == ';':
 			fmt.Println("SEMICOLON ; null")
 		default:
 			fmt.Fprintf(os.Stderr, "[line 1] Error: Unexpected character: %c\n", current)
