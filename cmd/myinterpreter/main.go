@@ -43,10 +43,23 @@ func main() {
 		case current == '!' && next == '=':
 			fmt.Println("BANG_EQUAL != null")
 			i++
+		case current == '!' && next == '=':
+			fmt.Println("BANG_EQUAL != null")
+			i++
+		case current == '<' && next == '=':
+			fmt.Println("LESS_EQUAL <= null")
+			i++
+		case current == '>' && next == '=':
+			fmt.Println("GREATER_EQUAL >= null")
+			i++
 		case current == '!':
 			fmt.Println("BANG ! null")	
 		case current == '=':
 			fmt.Println("EQUAL = null")
+		case current == '<':
+			fmt.Println("LESS < null")
+		case current == '>':
+			fmt.Println("GREATER > null")
 		case current == '(':
 			fmt.Println("LEFT_PAREN ( null")
 		case current == ')':
