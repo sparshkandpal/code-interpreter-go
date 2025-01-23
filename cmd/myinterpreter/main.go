@@ -40,6 +40,11 @@ func main() {
 		case current == '=' && next == '=':
 			fmt.Println("EQUAL_EQUAL == null")
 			i++
+		case current == '!' && next == '=':
+			fmt.Println("BANG_EQUAL != null")
+			i++
+		case current == '!':
+			fmt.Println("BANG ! null")	
 		case current == '=':
 			fmt.Println("EQUAL = null")
 		case current == '(':
